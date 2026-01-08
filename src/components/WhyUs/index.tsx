@@ -5,8 +5,8 @@ import Image from "next/image";
 const whyUsData = [
   {
     id: 1,
-    title: "Academic Rigor",
-    description: "Curriculum designed to challenge students and foster intellectual curiosity.",
+    title: "Industry-Focused Learning",
+    description: "Our experienced faculty make learning easy, practical, and engaging, ensuring students build strong fundamentals with hands-on exposure to real hospitality environments.",
     icon: (
       <svg className="h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -15,8 +15,8 @@ const whyUsData = [
   },
   {
     id: 2,
-    title: "Character Building",
-    description: "Emphasis on integrity, empathy, and resilience for ethical global citizenship.",
+    title: "Expert Faculty & Strong Mentorship",
+    description: "At AMICHM, our dedicated faculty go beyond textbooks, guiding students personally and professionally to help them grow with confidence, discipline, and industry-ready skills.",
     icon: (
       <svg className="h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -25,8 +25,8 @@ const whyUsData = [
   },
   {
     id: 3,
-    title: "World-Class Facilities",
-    description: "Modern labs, creative studios, and expansive sports grounds for holistic growth.",
+    title: "Industry Exposure & Placements",
+    description: "The college management regularly brings renowned chefs, hospitality leaders, and industry experts from across India, placing AMICHM students among the top choices in hotel placement interviews.",
     icon: (
       <svg className="h-6 w-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -117,14 +117,10 @@ const WhyUs = () => {
           {/* Left Content */}
           <div className="w-full lg:w-1/2">
             <span className="inline-block py-1 px-3 mb-6 text-xs font-semibold tracking-widest text-orange-600 uppercase bg-orange-50 rounded-full">
-              Why Choose St. Jude's?
+              Why Choose AMICHM?
             </span>
             <h2 className="mb-8 text-4xl lg:text-5xl font-bold text-black font-serif leading-tight">
-              Empowering Minds,<br />
-              <span className="relative inline-block">
-                Shaping Souls.
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-yellow-300 -z-10" viewBox="0 0 200 9" fill="currentcolor"><path d="M2.00025 6.99997C25.7509 2.99997 83.2505 5.49997 125.751 2.99997C191.251 -0.500027 245.286 1.05041 196.251 5.49997C147.215 9.94953 25.7509 8.99999 2.00025 6.99997Z"></path></svg>
-              </span>
+              Where Passion Meets Professional Excellence.<br />
             </h2>
             
             <div className="space-y-8 mb-10">

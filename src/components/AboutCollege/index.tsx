@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const AboutCollege = () => {
   return (
     <section className="bg-white py-16 md:py-20 lg:py-28">
@@ -40,36 +42,43 @@ const AboutCollege = () => {
           </div>
 
           {/* Features Grid */}
-          <div className="-mx-4 flex flex-wrap">
+          <div className="-mx-4 flex flex-wrap justify-center">
             {[
               {
-                icon: "📚",
-                title: "Excellent Academics",
-                description: "Consistently high results and a curriculum that promotes critical thinking",
+                icon: "/Strong.gif",
+                title: "Strong Academic Foundation",
+                description: "Expert faculty at AMICHM make learning simple, practical, and engaging, helping students build strong hospitality fundamentals with ease.",
               },
               {
-                icon: "🌐",
-                title: "Global Perspective",
-                description: "Preparing students for a multicultural world through diverse programs",
+                icon: "/Industry.gif",
+                title: "Industry Exposure",
+                description: "Regular interaction with renowned chefs, hospitality leaders, and industry experts from across India keeps students updated with the latest industry trends.",
               },
               {
-                icon: "⚡",
-                title: "Innovation & Tech",
-                description: "Modern campus with high-tech laboratories and digital classrooms",
+                icon: "/career.gif",
+                title: "Career-Focused Training",
+                description: "Our curriculum is designed to prepare students for real hotel environments, making them top choices in hospitality placement interviews.",
               },
               {
-                icon: "🤝",
-                title: "Values Based",
-                description: "An atmosphere that fosters integrity, respect, and social responsibility",
+                icon: "/award.gif",
+                title: "Award-Winning Excellence",
+                description: "Recipient of the Mid-Day Excellence in Education Award for Excellence in Hotel Management Education, reflecting our commitment to quality and success.",
               },
             ].map((feature, index) => (
-              <div key={index} className="w-full px-4 md:w-1/2 lg:w-1/4">
-                <div className="group mb-8 rounded-xl bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
-                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-orange-600 shadow-lg transition-transform duration-300 group-hover:scale-110 text-3xl">
-                    {feature.icon}
+              <div key={index} className="w-full px-4 sm:w-1/2 lg:w-1/4">
+                <div className="group mb-8 flex flex-col items-center text-center rounded-2xl bg-white p-10 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-50 h-full">
+                  <div className="mb-8 flex h-40 w-40 items-center justify-center transition-transform duration-500 group-hover:scale-110">
+                    <Image 
+                      src={feature.icon} 
+                      alt={feature.title}
+                      width={160}
+                      height={160}
+                      className="object-contain"
+                      unoptimized={true}
+                    />
                   </div>
-                  <h4 className="mb-2 text-lg font-bold text-black">{feature.title}</h4>
-                  <p className="text-sm text-body-color">{feature.description}</p>
+                  <h4 className="mb-4 text-xl font-bold text-black leading-tight">{feature.title}</h4>
+                  <p className="text-sm leading-relaxed text-body-color">{feature.description}</p>
                 </div>
               </div>
             ))}
