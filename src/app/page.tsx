@@ -5,6 +5,7 @@ import VisionMission from "@/components/VisionMission";
 import AboutCollege from "@/components/AboutCollege";
 import SchoolSpirit from "@/components/NAACSection";
 import Contact from "@/components/Contact";
+import AdmissionInquiryModal from "@/components/AdmissionInquiryModal";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function Home() {
       <AboutCollege />
       <SchoolSpirit />
       <Contact />
+      <AdmissionInquiryModal />
     </>
   );
 }
