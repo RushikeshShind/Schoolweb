@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import NewsTicker from "../Common/NewsTicker";
 
+import { useModal } from "@/context/ModalContext";
+
 const HeroCarousel = () => {
+  const { openAdmissionModal } = useModal();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -125,14 +128,17 @@ const HeroCarousel = () => {
           <div className="container">
             <div className="flex justify-center gap-6">
               {/* Card 1 */}
-              <Link href="/admission-enquiry" className="group flex flex-col items-center justify-center bg-[#000066] p-8 text-white transition-all hover:bg-primary w-1/3 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:-translate-y-2 duration-300">
+              <button 
+                onClick={openAdmissionModal}
+                className="group flex flex-col items-center justify-center bg-[#000066] p-8 text-white transition-all hover:bg-primary w-1/3 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:-translate-y-2 duration-300 cursor-pointer"
+              >
                 <div className="mb-4 text-primary group-hover:text-white transition-colors">
                   <svg className="h-14 w-14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
                 <span className="text-xl font-bold uppercase text-center tracking-wider">Admission Enquiry</span>
-              </Link>
+              </button>
               {/* Card 2 */}
               <Link href="/campus-tour" className="group flex flex-col items-center justify-center bg-[#000066] p-8 text-white transition-all hover:bg-primary w-1/3 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:-translate-y-2 duration-300">
                 <div className="mb-4 text-primary group-hover:text-white transition-colors">
@@ -158,14 +164,17 @@ const HeroCarousel = () => {
 
       {/* Mobile Action Cards */}
       <div className="md:hidden bg-white py-8 px-4 flex flex-col gap-4">
-        <Link href="/admission-enquiry" className="flex items-center gap-4 bg-[#000066] p-4 text-white rounded-lg">
+        <button 
+          onClick={openAdmissionModal}
+          className="flex items-center gap-4 bg-[#000066] p-4 text-white rounded-lg cursor-pointer"
+        >
           <div className="text-primary shrink-0">
             <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
             </svg>
           </div>
           <span className="text-lg font-bold uppercase">Admission Enquiry</span>
-        </Link>
+        </button>
         <Link href="/campus-tour" className="flex items-center gap-4 bg-[#000066] p-4 text-white rounded-lg">
           <div className="text-primary shrink-0">
             <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">

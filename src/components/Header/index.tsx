@@ -4,8 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import menuData from "./menuData";
+import { useModal } from "@/context/ModalContext";
 
 const Header = () => {
+  const { openAdmissionModal } = useModal();
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -60,7 +62,7 @@ const Header = () => {
         </div>
 
         {/* Main Navbar */}
-        <div className={`w-full bg-white transition-all duration-300 ${sticky ? "shadow-md py-1 lg:py-2" : "py-1.5 lg:py-4"}`}>
+        <div className={`w-full transition-all duration-300 ${sticky ? "bg-white/80 backdrop-blur-md shadow-md py-1 lg:py-2" : "bg-transparent py-2 lg:py-6"}`}>
           <div className="container">
             <div className="relative -mx-4 flex items-center justify-between">
               <div className="w-56 sm:w-[350px] max-w-full px-4 xl:mr-12">
@@ -73,7 +75,7 @@ const Header = () => {
                     alt="logo"
                     width={350}
                     height={85}
-                    className="w-full h-auto"
+                    className={`w-full h-auto transition-all ${!sticky && "brightness-0 invert"}`}
                   />
                 </Link>
               </div>
@@ -91,10 +93,11 @@ const Header = () => {
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
-                            className={`flex py-2 text-base font-semibold lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === menuItem.path
-                              ? "text-primary"
-                              : "text-dark hover:text-primary"
-                              }`}
+                            className={`flex py-2 text-base font-semibold lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
+                              usePathName === menuItem.path
+                                ? (sticky ? "text-primary" : "text-white")
+                                : (sticky ? "text-dark hover:text-primary" : "text-white/90 hover:text-white underline-offset-8 hover:underline transition-all")
+                            }`}
                           >
                             {menuItem.title}
                           </Link>
@@ -102,7 +105,7 @@ const Header = () => {
                           <>
                             <p
                               onClick={() => handleSubmenu(index)}
-                              className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base font-semibold lg:mr-0 lg:inline-flex lg:px-0 lg:py-6"
+                              className={`${sticky ? "text-dark group-hover:text-primary" : "text-white group-hover:text-white"} flex cursor-pointer items-center justify-between py-2 text-base font-semibold lg:mr-0 lg:inline-flex lg:px-0 lg:py-6`}
                             >
                               {menuItem.title}
                               <span className="pl-1">
@@ -138,9 +141,9 @@ const Header = () => {
                 </nav>
 
                 <div className="flex items-center gap-1.5 sm:gap-4">
-                  <Link
-                    href="/apply"
-                    className="bg-primary text-white px-2.5 py-1.5 sm:px-7 sm:py-3 rounded-full text-[9px] sm:text-base font-bold flex items-center hover:bg-primary-dark transition-all whitespace-nowrap"
+                  <button
+                    onClick={openAdmissionModal}
+                    className="bg-primary text-white px-2.5 py-1.5 sm:px-7 sm:py-3 rounded-full text-[9px] sm:text-base font-bold flex items-center hover:bg-primary-dark transition-all whitespace-nowrap cursor-pointer"
                   >
                     Apply Now
                     <svg
@@ -156,7 +159,7 @@ const Header = () => {
                         d="M14 5l7 7m0 0l-7 7m7-7H3"
                       />
                     </svg>
-                  </Link>
+                  </button>
                   <button
                     onClick={navbarToggleHandler}
                     id="navbarToggler"
